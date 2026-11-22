@@ -1,0 +1,63 @@
+name: Build Qianye for Windows
+on:
+  push:
+    branches: [main, master]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Inno Setup compiler
+        shell: pwsh
+        run: |
+          $installer = Join-Path $env:RUNNER_TEMP 'innosetup-6.4.3.exe'
+          Invoke-WebRequest -Uri 'https://github.com/jrsoftware/issrc/releases/download/is-6_4_3/innosetup-6.4.3.exe' -OutFile $installer
+          if ((Get-FileHash $installer -Algorithm SHA256).Hash -ne 'F3C42116542C4CC57263C5BA6C4FEABFC49FE771F2F98A79D2F7628B8762723B') { throw 'Inno Setup checksum mismatch' }
+          if ((Get-AuthenticodeSignature $installer).Status -ne 'Valid') { throw 'Inno Setup signature verification failed' }
+          $p = Start-Process $installer -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /CURRENTUSER /NOICONS /DIR="C:\InnoSetup"' -PassThru -Wait
+          if ($p.ExitCode -ne 0) { throw 'Inno Setup installation failed' }
+      - name: Verify and build installer
+        shell: pwsh
+        run: ./tools/build.ps1 -IsccPath 'C:\InnoSetup\ISCC.exe'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Qianye-Windows-x64
+          path: dist/*
+          if-no-files-found: error
+  release:
+    if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: Qianye-Windows-x64
+          path: dist
+      - name: Publish tagged release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          GITHUB_REF_TYPE: ${{ github.ref_type }}
+          RELEASE_COMMIT: ${{ github.sha }}
+        shell: pwsh
+        run: |
+          $versionLine = Select-String -Path installer/setup.iss -Pattern '^#define ProductVersion "([^"]+)"'
+          $version = $versionLine.Matches[0].Groups[1].Value
+          $tag = if ($env:GITHUB_REF_TYPE -eq 'tag') { $env:GITHUB_REF_NAME } else { 'v' + $version }
+          gh release view "$tag" 2>$null
+          if ($LASTEXITCODE -eq 0) { Write-Output 'This version is already published; leaving its assets unchanged.'; exit 0 }
+          $assets = Get-ChildItem -Path dist -File | ForEach-Object FullName
+          gh release create "$tag" --target "$env:RELEASE_COMMIT" --title "千页 $tag" --notes-file docs/release-notes.md @assets
+          if ($LASTEXITCODE -ne 0) { throw 'Release publication failed' }

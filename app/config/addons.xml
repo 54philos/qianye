@@ -1,0 +1,27 @@
+<TablacusExplorer>
+	<mouse Enabled="1" Level="2"/>
+	<key Enabled="1" Level="2"/>
+	<addressbar Enabled="1" Level="2" Set="1" KeyExec="1" Key="Alt+D" IconSize="16" Location="BottomBar1Center" KeyOn="All"/>
+	<filterbar Enabled="0" Level="2" Set="1" Location="ToolBar2Right" Width="140"/>
+	<back Enabled="1" Level="2" Set="1" IconSize="21"/>
+	<forward Enabled="1" Level="2" Set="1" IconSize="21"/>
+	<up Enabled="1" Level="2" Set="1" IconSize="21"/>
+	<treeview Enabled="0" Level="2"/>
+	<toolbar Enabled="0" Level="2"/>
+	<mainmenu Enabled="0" Level="2"/>
+	<titlebar Enabled="0" Level="2"/>
+	<tabplus Enabled="1" Level="2" Set="1" New="1" Width="240" IconsSize="16" Tooltips="1" Close="1" Icon="1" IconClose="font:Segoe UI,0xd7"/>
+	<multiprocess Enabled="1" Level="2"/>
+	<remember Enabled="1" Level="2"/>
+	<undoclosetab Enabled="3" Level="2"/>
+	<aboutblank Enabled="1" Level="2"/>
+	<segoeicons Enabled="1" Level="2"/>
+	<font Enabled="1" Level="2" Set="1" TreeHeight="32" Weight="400" CharSet="1" Name="Microsoft YaHei UI" Size="11"/>
+	<stripes Enabled="1" Level="2" Set="1" Color2="#d0d0d0" Alpha="40"/>
+	<favoritesbar Enabled="1" Level="2" Set="1" Height="100%" Align="Left"/>
+	<favbar Enabled="0" Level="2" Set="1" Location="ToolBar2Center" NoDD="1" Size="34"/>
+	<statusbar Enabled="1" Level="2" Set="1" Location="BottomBar3Left"/>
+	<iconchanger Enabled="0" Level="2" Set="1"/>
+	<finderstyle Enabled="1" Level="2" Set="1"/>
+	<openinstead Enabled="0" Level="2" Set="1" RealFolders="1" SpecialFolders="0" TakeOver="0"/>
+</TablacusExplorer>

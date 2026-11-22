@@ -1,0 +1,24 @@
+﻿Third-party notices / 第三方说明
+
+Tablacus Explorer and bundled Tablacus add-ons
+Author: Gaku / Tablacus project and credited add-on contributors.
+https://tablacus.github.io/explorer_en.html
+https://github.com/tablacus/TablacusExplorer
+https://github.com/tablacus/TablacusExplorerAddons
+License: MIT; original license included as LICENSE-Tablacus.txt. Original readme and add-on metadata are retained. Finder-style scripts and selected add-ons have local modifications; this is not an official release.
+
+Microsoft Edge WebView2 Evergreen Bootstrapper
+Publisher: Microsoft Corporation. Bundled bootstrapper is digitally signed by Microsoft.
+https://learn.microsoft.com/microsoft-edge/webview2/concepts/distribution
+The runtime remains subject to Microsoft's terms, is installed only if absent, and is not removed when this application is uninstalled.
+
+Finder face icon
+Original Finder artwork belongs to Apple Inc.; it is not covered by Tablacus Explorer's MIT license. This custom package is not affiliated with Apple.
+Appearance reference: https://support.apple.com/guide/mac-help/organize-your-files-in-the-finder-mchlp2605/15.0/mac/15.0
+Source mirror: https://raw.githubusercontent.com/0xAvaneesh/Orbit-OS/main/Finder_Icon_macOS_Big_Sur.png
+Original source SHA1: 0A4A8EA7CC48A49071E49D24C75FE25BB7725DDF
+Transparent padding was adjusted and Windows ICO sizes were generated locally.
+
+Installer generated with Inno Setup 6.4.3
+Copyright (C) 1997-2025 Jordan Russell. Portions Copyright (C) 2000-2025 Martijn Laan.
+https://jrsoftware.org/

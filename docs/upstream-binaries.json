@@ -1,0 +1,26 @@
+{
+  "checkedOn": "2026-11-22",
+  "verification": "All listed binaries were compared byte-for-byte with files extracted from the stated official upstream release assets. They are unmodified upstream program files, not machine-specific builds or user data.",
+  "files": [
+    {
+      "path": "app/TE64.exe",
+      "source": "https://github.com/tablacus/TablacusExplorer/releases/download/26.9.20/te260920.zip",
+      "sha256": "06e4802a9a719a76e3a4407302a431af3ad485a6d5fe0830b3033af3e441a212",
+      "bytes": 11776
+    },
+    {
+      "path": "app/lib/te64.dll",
+      "source": "https://github.com/tablacus/TablacusExplorer/releases/download/26.9.20/te260920.zip",
+      "sha256": "7f43d0ef5cca86b1ed469801932749b749cd72ee14994580132c1c44e386b9de",
+      "bytes": 598528
+    },
+    {
+      "path": "app/lib/tewv64.dll",
+      "source": "https://github.com/tablacus/TablacusExplorerWebView2/releases/download/26.6.19/tewv_260619.zip",
+      "sha256": "cb0eadb8f96ed7c1157b228a854c6c159afff795b5da93c88ac3879f3ac1566b",
+      "bytes": 203776,
+      "upstreamReleaseType": "pre-release"
+    }
+  ],
+  "excluded": "32-bit te32.dll and tewv32.dll are omitted from this x64-only distribution."
+}

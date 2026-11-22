@@ -1,0 +1,61 @@
+{
+  "checkedOn": "2026-11-22",
+  "compiler": "Windows .NET Framework 4.x C# compiler",
+  "buildScript": "tools/build.ps1",
+  "origin": "These helper binaries were rebuilt locally from the included source files by the included build script. No compiler debug switch or PDB output is used.",
+  "helpers": [
+    {
+      "binary": "addons/finderstyle/thumbnail-repair.exe",
+      "sources": [
+        {
+          "path": "addons/finderstyle/ThumbProbe.cs",
+          "sha256": "44e0729d57cc7b67c6268385a5a2267407d107cb901b1c33473f1a26dbdb2018"
+        },
+        {
+          "path": "addons/finderstyle/ThumbnailRepair.cs",
+          "sha256": "2450489a7cd4e6d0000482f860d77c69fc2e60a9c653ceb5f40dcbe98c6072a0"
+        }
+      ],
+      "refs": [
+        "System.Web.Extensions.dll"
+      ],
+      "binarySha256": "6c44c5d111be3c852bd374c63421ed1b31d29f217718e0b670c77078132e0e46",
+      "bytes": 10240,
+      "debugDirectoryBytes": 0,
+      "privatePathMatches": []
+    },
+    {
+      "binary": "addons/finderstyle/wine-launcher.exe",
+      "sources": [
+        {
+          "path": "addons/finderstyle/WinELauncher.cs",
+          "sha256": "8caf9b62b1a7d836fd312065945ca8d734b36d1938c7fa027619915d63109cdf"
+        }
+      ],
+      "refs": [
+        "System.Windows.Forms.dll",
+        "System.Web.Extensions.dll"
+      ],
+      "binarySha256": "19aa6b13c30757897eabe4eb85785661e23569cd96ab4caade777400585af2aa",
+      "bytes": 16896,
+      "debugDirectoryBytes": 0,
+      "privatePathMatches": []
+    },
+    {
+      "binary": "Maintenance.exe",
+      "sources": [
+        {
+          "path": "Maintenance.cs",
+          "sha256": "3030c3909fc0d6dacd62ae3a031776d63230899cd00fe8596bd8a6a6b71e72ca"
+        }
+      ],
+      "refs": [
+        "System.Web.Extensions.dll"
+      ],
+      "binarySha256": "7aa021c953ac48876d9ecfba47138ac830b25701508d78ca4839659a0df85580",
+      "bytes": 11264,
+      "debugDirectoryBytes": 0,
+      "privatePathMatches": []
+    }
+  ]
+}

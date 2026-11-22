@@ -1,0 +1,12 @@
+.build/
+dist/
+installer/downloads/
+app/cache/
+app/config/*
+!app/config/addons.xml
+!app/config/window.xml
+!app/config/menus.xml
+!app/config/finder-top-favorites.xml
+app/maintenance-*.json
+app/maintenance-error.txt
+*.log
